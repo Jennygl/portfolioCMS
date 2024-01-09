@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Poiret+One&display=swap");
+
+:root {
+  --green: #074029;
+  --white: #ffffff;
+  --purple: #a889b7;
+  --brightpurple: #c3b8cf;
+}
+html {
+  min-height: 100%;
+}
+body {
+  background-color: var(--brightpurple);
+  box-sizing: border-box;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  background-color: var(--purple);
+  width: 100%;
+}
+
+.post {
+  background-color: var(--green);
+  background-image: linear-gradient(to bottom right, var(--green), #158959);
+  border-radius: 5px;
+}
+#postTitle,
+#postSlug {
+  color: white;
+  font-weight: 100;
+}
+
+/* footer {
+  background-color: var(--purple);
+  height: 50px;
+  width: 100%;
+  margin-top: auto;
+  position: absolute;
+  bottom: 0;
+} */

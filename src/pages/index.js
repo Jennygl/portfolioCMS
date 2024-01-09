@@ -1,17 +1,14 @@
 import * as React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 import Layout from "../components/layout"
+import AboutJenny from "../components/AboutJenny"
 
-
-//react-component
-//alla componenter under /src/pages blir automatiskt sidor
-//sidans namn = namnet på javascript-filen (dock - index.js = sajtens första sida)
 const IndexPage = () => (
   <Layout>
-    <Link to="/portfolio">Se min portfolio</Link>
+    <AboutJenny></AboutJenny>
   </Layout>
 )
 //denna konstant sätter titeln på sidan
-export const Head = () => <title>Home Page</title>
+export const Head = () => <title>Jenny Grinde Lensing</title>
 
-export default IndexPage;
+export default IndexPage

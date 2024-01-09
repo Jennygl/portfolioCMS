@@ -1,14 +1,24 @@
-import * as React from "react"
+// src/pages/404.js
+import React from "react"
+import { graphql } from "gatsby"
 
-import Layout from "../components/layout"
+const NotFoundPage = ({ data }) => {
+  //   const notFoundContent = data.contentfulNotFoundPage // Adjust the query based on your Contentful content model
 
-//i dev mode overridas denna sida av en inbyggd 404-sida
-const NotFoundPage = () => (
-  <Layout>
-    <h1>404: Not Found</h1>
-  </Layout>
-)
+  return (
+    <div>
+      <h1>404 - Page Not Found.</h1>
+      {/* <p>{notFoundContent.description}</p> */}
+    </div>
+  )
+}
 
-export const Head = () => <title>Portfolio Page</title>
+// export const query = graphql`
+//   query {
+//     contentfulNotFoundPage {
+//       description
+//     }
+//   }
+// `
 
 export default NotFoundPage
