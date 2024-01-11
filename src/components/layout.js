@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import "../css/style.css"
 import { Link } from "gatsby-link"
-import FooterComp from "./footerComp"
+import FooterComp from "./FooterComp"
 import useNavigation from "../hooks/use-navigation"
 import LoginPage from "./LoginContentful"
 
