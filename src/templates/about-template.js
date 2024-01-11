@@ -1,40 +1,33 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import React from "react"
 import Layout from "../components/layout"
+import styled from "styled-components"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { GatsbyImage } from "gatsby-plugin-image"
 
-const AboutTemplate = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allContentfulExperience {
-        edges {
-          node {
-            id
-            name
-            
-          }
-        }
-      }
-    }
-  `)
-  console.log("Data:", data)
-
-  return (
-    <Layout>
-      <h2 className="mt-5 mx-3">About</h2>
-      <ul className="d-flex flex-column align-items-start justify-content-center mx-sm-1">
-        {data.allContentfulExperience.edges.map(({ node }) => (
-          <li className="col-sm-3 m-2" key={node.id}>
-            <p>{node.name}</p>
-            {/* <div>{documentToReactComponents(JSON.parse(node.text.raw))}</div> */}
-          </li>
-        ))}
-      </ul>
-    </Layout>
-  )
-}
-
-export const Head = () => <title>About Page</title>
+const AboutTemplate = ({ title, content, image }) => (
+  <Layout>
+    <Content className="content mx-3" id="aboutContent">
+      <h2>{title}</h2>
+      <div className="about-content">
+        {documentToReactComponents(JSON.parse(content.raw))}
+      </div>
+      <GatsbyImage
+        className="my-3"
+        id="AboutImage"
+        alt={title}
+        image={image.gatsbyImage}
+      ></GatsbyImage>
+    </Content>
+  </Layout>
+)
 
 export default AboutTemplate
+
+const Content = styled.div`
+  color: black;
+
+  #AboutImage {
+    width: 10vw;
+    height: 10vw;
+  }
+`

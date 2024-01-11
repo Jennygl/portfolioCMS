@@ -33,12 +33,11 @@ nav {
   color: white;
   font-weight: 100;
 }
-
-/* footer {
-  background-color: var(--purple);
-  height: 50px;
-  width: 100%;
-  margin-top: auto;
-  position: absolute;
-  bottom: 0;
-} */
+h2 {
+  font-family: "Poiret One", sans-serif;
+}
+.content {
+  font-family: "arial";
+  font-weight: 100;
+  /* margin: 1vh 2vw 1vh 2vw; */
+}

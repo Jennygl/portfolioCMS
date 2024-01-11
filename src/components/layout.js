@@ -2,29 +2,13 @@ import * as React from "react"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import "../css/style.css"
-import { Link } from "gatsby"
+import { Link } from "gatsby-link"
 import FooterComp from "./footerComp"
-import LoginContentful from "./LoginContentful"
-import { useStaticQuery, graphql } from "gatsby"
 import useNavigation from "../hooks/use-navigation"
 import LoginPage from "./LoginContentful"
 
 const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      allContentfulPages {
-        edges {
-          node {
-            id
-            title
-            url
-          }
-        }
-      }
-    }
-  `)
-
-  const navigation = useNavigation()
+  const { allContentfulPages } = useNavigation()
 
   return (
     <>
@@ -47,7 +31,7 @@ const Layout = ({ children }) => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav">
-                {data.allContentfulPages.edges.map(edge => (
+                {allContentfulPages.edges.map(edge => (
                   <div className="navitem" key={edge.node.id}>
                     <li className="nav-item">
                       <Link to={edge.node.url} className="nav-link">
