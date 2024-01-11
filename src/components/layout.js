@@ -34,7 +34,7 @@ const Layout = ({ children }) => {
                 {allContentfulPages.edges.map(edge => (
                   <div className="navitem" key={edge.node.id}>
                     <li className="nav-item">
-                      <Link to={edge.node.url} className="nav-link">
+                      <Link to={`/${edge.node.url}`} className="nav-link">
                         {edge.node.title}
                       </Link>
                     </li>
