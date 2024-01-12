@@ -14,6 +14,8 @@ export const query = graphql`
       title
       url
       template
+      text1
+      text2
       image {
         gatsbyImage(width: 1000)
       }
@@ -42,11 +44,7 @@ const Page = props => {
     }
   }
 
-  return (
-    <Layout>
-      {getTemplate(contentfulPages)}{" "}
-    </Layout>
-  )
+  return <Layout>{getTemplate(contentfulPages)} </Layout>
 }
 
 export default Page

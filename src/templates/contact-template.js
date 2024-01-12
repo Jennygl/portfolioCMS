@@ -4,9 +4,9 @@ import styled from "styled-components"
 import SymbolComp from "../components/SymbolComp"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-const ContactTemplate = ({ title, content, data }) => (
+const ContactTemplate = ({ title, content, data, text1 }) => (
   <Layout>
-    <Content className="content mx-3 text-center" id="contactContent">
+    <Content className="content mx-3 text-center contactTemplate">
       <h2>{title}</h2>
       <div className="contact-content">
         {documentToReactComponents(JSON.parse(content.raw))}

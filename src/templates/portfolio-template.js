@@ -28,7 +28,7 @@ const PortfolioTemplate = ({ title, content }) => {
   `)
   return (
     <Layout>
-      <Content className="content mx-3">
+      <Content className="content mx-3 portfolioTemplate">
         <h2>
           {title}{" "}
           <span>

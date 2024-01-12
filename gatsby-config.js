@@ -50,6 +50,12 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/about/`, `/contact/*`],
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-google-fonts`,
     //   options: {

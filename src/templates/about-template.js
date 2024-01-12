@@ -6,7 +6,7 @@ import { GatsbyImage } from "gatsby-plugin-image"
 
 const AboutTemplate = ({ title, content, image }) => (
   <Layout>
-    <Content className="content mx-3" id="aboutContent">
+    <Content className="content mx-3 aboutTemplate">
       <h2>{title}</h2>
       <div className="about-content">
         {documentToReactComponents(JSON.parse(content.raw))}

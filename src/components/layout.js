@@ -32,9 +32,13 @@ const Layout = ({ children }) => {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav">
                 {allContentfulPages.edges.map(edge => (
-                  <div className="navitem" key={edge.node.id}>
+                  <div className="navitem" key={edge.node.template}>
                     <li className="nav-item">
-                      <Link to={`/${edge.node.url}`} className="nav-link">
+                      <Link
+                        to={`/${edge.node.url}`}
+                        key={edge.node.url}
+                        className="nav-link"
+                      >
                         {edge.node.title}
                       </Link>
                     </li>
