@@ -1,13 +1,13 @@
 import * as React from "react"
 import { graphql } from "gatsby"
+// import { Link } from "gatsby"
 
 const Symbol = ({ data }) => {
-//   const { id, symbol, title } = data.contentfulSymbols
+  //   const { id, symbol, title, link } = data.contentfulSymbols
 
   return (
     <div>
-      {/* <h1>{title}</h1>
-      <p>ID: {id}</p> */}
+      {/* <Link to={link}>symbol</Link> */}
       <p>Symbol:</p>
     </div>
   )
@@ -19,6 +19,7 @@ export const query = graphql`
       id
       symbol
       title
+      link
     }
   }
 `
