@@ -16,7 +16,11 @@ const useNavigation = () => {
       }
     }
   `)
-  return data
+  const filteredData = data.allContentfulPages.edges.filter(
+    ({ node }) => node.url !== "404"
+  )
+
+  return { allContentfulPages: { edges: filteredData } }
 }
 
 export default useNavigation
