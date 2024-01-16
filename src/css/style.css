@@ -2,6 +2,7 @@
 
 :root {
   --green: #074029;
+  /* --green: #146d4a28; */
   --white: #ffffff;
   --purple: #a889b7;
   --brightpurple: #c3b8cf;
@@ -25,14 +26,15 @@ nav {
 
 .post {
   background-color: var(--green);
-  background-image: linear-gradient(to bottom right, var(--green), #158959);
+  background-image: linear-gradient(to bottom, var(--green), #2ca472);
+  color: white;
   border-radius: 5px;
 }
-#postTitle,
+/* #postTitle,
 #postSlug {
-  color: white;
+  color: rgb(230, 229, 229);
   font-weight: 100;
-}
+} */
 h2 {
   font-family: "Poiret One", sans-serif;
 }

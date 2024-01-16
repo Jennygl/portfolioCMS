@@ -6,7 +6,7 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 const DefaultTemplate = ({ title, content, text1, text2 }) => (
   <Layout>
     <Content className="content mx-3 defaultTemplate">
-      <h2>{title} default-template</h2>
+      <h2>{title}</h2>
       <LogoTitle>
         <Title>{text2}</Title>
 

@@ -29,12 +29,7 @@ const PortfolioTemplate = ({ title, content }) => {
   return (
     <Layout>
       <Content className="content mx-3 portfolioTemplate">
-        <h2>
-          {title}{" "}
-          <span>
-            <i class="bi bi-0-circle-fill"></i>
-          </span>
-        </h2>
+        <h2>{title} </h2>
 
         <div className="contact-content">
           {documentToReactComponents(JSON.parse(content.raw))}
@@ -52,12 +47,12 @@ const PortfolioTemplate = ({ title, content }) => {
                   {edge.node.title}
                 </h4>
                 <GatsbyImage
-                  className="my-3"
+                  className="my-3 postImage mx-auto"
                   id="postImage"
                   alt={edge.node.title}
                   image={edge.node.image.gatsbyImage}
                 ></GatsbyImage>
-                <p>{truncatedText}</p>
+                <p>{truncatedText}...</p>
                 <Link to={`/portfolio/${slug}`} className="" id="postSlug">
                   {" "}
                   Read more{" "}
@@ -77,4 +72,20 @@ export const Head = () => <title>Portfolio Page</title>
 export default PortfolioTemplate
 const Content = styled.div`
   /* color: black; */
+
+  .postImage {
+    width: 10vw;
+    height: 10vw;
+  }
+  #postTitle,
+  #postSlug {
+    color: rgb(230, 229, 229);
+    font-weight: 100;
+  }
+  #postSlug {
+    font-size: 0.8em;
+    text-decoration: none;
+    color: white;
+    font-style: italic;
+  }
 `
