@@ -14,6 +14,7 @@ const ContactTemplate = ({ title, content, text1 }) => {
           node {
             title
             url
+            icon
           }
         }
       }
@@ -30,11 +31,16 @@ const ContactTemplate = ({ title, content, text1 }) => {
         {data.allContentfulLinks.edges.map(edge => {
           return (
             <div className="text-center" key={edge.node.title}>
-              <a href={edge.node.url}>{edge.node.title}</a>
+              <a href={edge.node.url} target="_blank" rel="noopener noreferrer">
+                {" "}
+                <span
+                  dangerouslySetInnerHTML={{ __html: edge.node.icon }}
+                ></span>
+                {edge.node.title}
+              </a>
             </div>
           )
         })}
-          <a href="www.github.com">statisk</a>
       </Content>
     </Layout>
   )
