@@ -12,11 +12,12 @@ require("dotenv").config({
 })
 module.exports = {
   siteMetadata: {
-    title: `Jennys Portfolio`,
-    description: `Jenny Grinde Lensing `,
+    title: `Jenny`,
+    description: `Jennys portfolio `,
     author: `Jenny Grinde Lensing`,
     siteUrl: `http://dummy-site.com`,
   },
+
   plugins: [
     `gatsby-transformer-remark`,
     {

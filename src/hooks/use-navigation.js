@@ -17,7 +17,7 @@ const useNavigation = () => {
     }
   `)
   const filteredData = data.allContentfulPages.edges.filter(
-    ({ node }) => node.url !== "404"
+    ({ node }) => node.url !== "404" && node.url !== "/"
   )
 
   return { allContentfulPages: { edges: filteredData } }

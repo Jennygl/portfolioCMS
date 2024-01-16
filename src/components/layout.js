@@ -6,17 +6,35 @@ import { Link } from "gatsby-link"
 import FooterComp from "./FooterComp"
 import useNavigation from "../hooks/use-navigation"
 import LoginPage from "./LoginContentful"
+import { graphql, useStaticQuery } from "gatsby"
+import { Helmet } from "react-helmet"
 
 const Layout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          author
+          description
+          title
+        }
+      }
+    }
+  `)
   const { allContentfulPages } = useNavigation()
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta name="author" content={data.site.siteMetadata.author} />
+        <title>{data.site.siteMetadata.author}</title>
+      </Helmet>
       <header className="mb-5 pb-1">
         <nav className="navbar navbar-expand-md navbar-light position-fixed top-0">
           <div className="container-fluid">
             <Link to="/" className="navbar-brand">
-              <p>Jenny</p>
+              <p>{data.site.siteMetadata.title} </p>
             </Link>
             <button
               className="navbar-toggler"
@@ -47,7 +65,7 @@ const Layout = ({ children }) => {
               </ul>
             </div>
           </div>
-          <div class="accordion" id="accordionExample">
+          {/* <div class="accordion" id="accordionExample">
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingThree">
                 <button
@@ -72,7 +90,7 @@ const Layout = ({ children }) => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </nav>
       </header>
       <main>{children}</main>

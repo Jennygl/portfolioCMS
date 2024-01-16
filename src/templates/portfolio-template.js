@@ -42,6 +42,7 @@ const PortfolioTemplate = ({ title, content }) => {
         <div className="posts row align-items-start justify-content-center mx-4 mx-sm-1">
           {data.allContentfulPortfolio.edges.map(edge => {
             const slug = edge.node.slug
+            const truncatedText = edge.node.text.text.slice(0, 70)
             return (
               <div
                 className="post col-sm-3 border m-2 py-3 d-flex flex-column text-center"
@@ -56,7 +57,7 @@ const PortfolioTemplate = ({ title, content }) => {
                   alt={edge.node.title}
                   image={edge.node.image.gatsbyImage}
                 ></GatsbyImage>
-                <p>{edge.node.text.text}</p>
+                <p>{truncatedText}</p>
                 <Link to={`/portfolio/${slug}`} className="" id="postSlug">
                   {" "}
                   Read more{" "}
