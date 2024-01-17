@@ -17,7 +17,7 @@ export const query = graphql`
       text1
       text2
       image {
-        gatsbyImage(width: 1000)
+        gatsbyImage(width: 200, height: 200)
       }
       content {
         raw
@@ -31,8 +31,8 @@ const Page = props => {
 
   const getTemplate = contentfulPages => {
     switch (contentfulPages.template) {
-      case "/":
-        return <HomeTemplate {...contentfulPages} />
+      //   case "/":
+      //     return <HomeTemplate {...contentfulPages} />
       case "about":
         return <AboutTemplate {...contentfulPages} />
       case "contact":

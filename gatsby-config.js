@@ -16,6 +16,7 @@ module.exports = {
     description: `Jennys portfolio `,
     author: `Jenny Grinde Lensing`,
     siteUrl: `http://dummy-site.com`,
+    keywords: `webbutveckling, portfolio responsiv design, SEO, Gatsby, React`,
   },
 
   plugins: [

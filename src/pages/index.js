@@ -8,7 +8,7 @@ const IndexPage = () => (
     <AboutJenny></AboutJenny>
   </Layout>
 )
-//denna konstant sätter titeln på sidan
+
 export const Head = () => <title>Jenny Grinde Lensing</title>
 
 export default IndexPage

@@ -30,7 +30,7 @@ const PortfolioItem = props => {
       {/* <SEO title={props.data.contentfulPortfolio.title} /> */}
       <Content className="mx-4 h-100">
         <div className="content">
-          <h1 className="mt-5">{props.data.contentfulPortfolio.title}</h1>
+          <h2 className="mt-5">{props.data.contentfulPortfolio.title}</h2>
           <p className="mt-5">{props.data.contentfulPortfolio.text.text}</p>
           <GatsbyImage
             className="my-3"
@@ -62,7 +62,7 @@ const PortfolioItem = props => {
 
 export default PortfolioItem
 
-const Content = styled.div`
+const Content = styled.section`
   margin-top: 100px;
   a {
     color: black;

@@ -1,25 +1,47 @@
 import React from "react"
 import Layout from "../components/layout"
 import styled from "styled-components"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-const DefaultTemplate = ({ title, content, text1, text2 }) => (
+const DefaultTemplate = ({ title, content, text1, text2, image }) => (
   <Layout>
-    <Content className="content mx-3 defaultTemplate">
-      <h2>{title}</h2>
+    <Content className="content mx-3 defaultTemplate mt-auto">
+      {/* <h2>{title}</h2> */}
       <LogoTitle>
         <Title>{text2}</Title>
 
         <Name>{text1}</Name>
       </LogoTitle>
-      <div>{documentToReactComponents(JSON.parse(content.raw))}</div>
+      {/* <div className="d-flex"> */}
+      <div className="defaultContent">
+        {documentToReactComponents(JSON.parse(content.raw))}
+        <GatsbyImage
+          className="my-3 justify-self-center me-5"
+          id="HomeImage"
+          alt={title}
+          image={image.gatsbyImage}
+        />
+      </div>
+      {/* </div> */}
     </Content>
   </Layout>
 )
 
 export default DefaultTemplate
-const Content = styled.div`
-  /* color: black; */
+const Content = styled.section`
+  .defaultContent {
+    width: 100vw;
+  }
+  @media screen and (min-width: 992px) {
+    .defaultContent {
+      width: 50vw;
+    }
+  }
+  #HomeImage {
+    width: 100px;
+    height: 100px;
+  }
 `
 
 const LogoTitle = styled.p`
@@ -30,7 +52,6 @@ const LogoTitle = styled.p`
   width: 18em;
   line-height: 130%;
   padding: 10vh 0 5vh 0;
-  /* border: 1px solid red; */
 `
 const Title = styled.span`
   font-size: 1.5em;

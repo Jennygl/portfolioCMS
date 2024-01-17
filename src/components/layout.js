@@ -5,9 +5,9 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 // import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import "../css/style.css"
 import { Link } from "gatsby-link"
-import FooterComp from "./FooterComp"
+// import FooterComp from "./FooterComp"
 import useNavigation from "../hooks/use-navigation"
-import LoginPage from "./LoginContentful"
+// import LoginPage from "./LoginContentful"
 import { graphql, useStaticQuery } from "gatsby"
 import { Helmet } from "react-helmet"
 
@@ -30,13 +30,16 @@ const Layout = ({ children }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <meta name="author" content={data.site.siteMetadata.author} />
-        <title>{data.site.siteMetadata.author}</title>
+        <meta name="keywords" content={data.site.siteMetadata.keywords} />
+        <meta name="description" content={data.site.siteMetadata.description} />
+
+        <title>{data.site.siteMetadata.title}</title>
       </Helmet>
-      <header className="mb-5 pb-1">
+      <header className="mb-5 pb-1" siteTitle={data.site.siteMetadata.author}>
         <nav className="navbar navbar-expand-md navbar-light position-fixed top-0">
           <div className="container-fluid">
             <Link to="/" className="navbar-brand">
-              <p>{data.site.siteMetadata.title} </p>
+              <h2>{data.site.siteMetadata.title} </h2>
             </Link>
             <button
               className="navbar-toggler"
@@ -67,36 +70,11 @@ const Layout = ({ children }) => {
               </ul>
             </div>
           </div>
-          {/* <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingThree">
-                <button
-                  class="accordion-button collapsed"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseThree"
-                  aria-expanded="false"
-                  aria-controls="collapseThree"
-                >
-                  CMS
-                </button>
-              </h2>
-              <div
-                id="collapseThree"
-                class="accordion-collapse collapse"
-                aria-labelledby="headingThree"
-                data-bs-parent="#accordionExample"
-              >
-                <div class="accordion-body">
-                  <LoginPage></LoginPage>
-                </div>
-              </div>
-            </div>
-          </div> */}
+
         </nav>
       </header>
       <main>{children}</main>
-      <FooterComp></FooterComp>
+      {/* <FooterComp></FooterComp> */}
     </>
   )
 }

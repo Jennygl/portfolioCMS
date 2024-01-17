@@ -22,7 +22,7 @@ const ContactTemplate = ({ title, content, text1 }) => {
   `)
   return (
     <Layout>
-      <Content className="content mx-3 text-center contactTemplate">
+      <Content className="content mx-2 mx-sm-5 contactTemplate">
         <h2>{title}</h2>
         <div className="contact-content">
           {documentToReactComponents(JSON.parse(content.raw))}
@@ -30,7 +30,7 @@ const ContactTemplate = ({ title, content, text1 }) => {
 
         {data.allContentfulLinks.edges.map(edge => {
           return (
-            <div className="text-center link" key={edge.node.title}>
+            <div className="link mb-2" key={edge.node.title}>
               <a
                 href={edge.node.url}
                 target="_blank"
@@ -39,6 +39,7 @@ const ContactTemplate = ({ title, content, text1 }) => {
               >
                 {" "}
                 <span
+                  className="pe-2"
                   dangerouslySetInnerHTML={{ __html: edge.node.icon }}
                 ></span>
                 {edge.node.title}
@@ -53,10 +54,14 @@ const ContactTemplate = ({ title, content, text1 }) => {
 
 export default ContactTemplate
 
-const Content = styled.div`
+const Content = styled.section`
   a.link {
     color: black;
     text-decoration: none;
+  }
+  .contact-content {
+    transform: rotate(-10deg);
+    font-size: 1.6em;
   }
 `
 

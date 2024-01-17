@@ -4,6 +4,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import styled from "styled-components"
+import { Helmet } from "react-helmet"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const PortfolioTemplate = ({ title, content }) => {
@@ -28,16 +29,21 @@ const PortfolioTemplate = ({ title, content }) => {
   `)
   return (
     <Layout>
-      <Content className="content mx-3 portfolioTemplate">
+      {/* <Helmet>
+        <title>Jenny's Portfolio</title>
+        <meta name="description" content="My frontend projects" />
+      </Helmet> */}
+      <Content className="content mx-2 mx-sm-5 portfolioTemplate">
         <h2>{title} </h2>
-
-        <div className="contact-content">
-          {documentToReactComponents(JSON.parse(content.raw))}
-        </div>
+        {content && (
+          <div className="portfolio-content">
+            {documentToReactComponents(JSON.parse(content.raw))}
+          </div>
+        )}
         <div className="posts row align-items-start justify-content-center mx-4 mx-sm-1">
           {data.allContentfulPortfolio.edges.map(edge => {
             const slug = edge.node.slug
-            const truncatedText = edge.node.text.text.slice(0, 70)
+            const truncatedText = edge.node.text.text.slice(0, 60)
             return (
               <div
                 className="post col-sm-3 border m-2 py-3 d-flex flex-column text-center"
@@ -52,7 +58,7 @@ const PortfolioTemplate = ({ title, content }) => {
                   alt={edge.node.title}
                   image={edge.node.image.gatsbyImage}
                 ></GatsbyImage>
-                <p>{truncatedText}...</p>
+                <p className="mt-auto">{truncatedText}...</p>
                 <Link to={`/portfolio/${slug}`} className="" id="postSlug">
                   {" "}
                   Read more{" "}
@@ -61,7 +67,9 @@ const PortfolioTemplate = ({ title, content }) => {
             )
           })}
         </div>
-        <Link to="/">Go back to the homepage</Link>
+        <Link className="absolute bottom-0" to="/">
+          Go back to the homepage
+        </Link>
       </Content>
     </Layout>
   )
@@ -70,22 +78,34 @@ const PortfolioTemplate = ({ title, content }) => {
 export const Head = () => <title>Portfolio Page</title>
 
 export default PortfolioTemplate
-const Content = styled.div`
+const Content = styled.section`
   /* color: black; */
-
+  .post {
+    min-width: 180px;
+    min-height: 300px;
+    /* background-color: var(--green);
+    background-image: linear-gradient(to bottom, brightpurple, darkgrey); */
+    /* background-color: var(--green);
+    background-image: linear-gradient(to bottom, #58c69a, #093c27); */
+    color: black;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+  }
   .postImage {
-    width: 10vw;
-    height: 10vw;
+    width: 150px;
+    /* height: 150px; */
   }
-  #postTitle,
-  #postSlug {
-    color: rgb(230, 229, 229);
+  #postTitle {
     font-weight: 100;
+    font-family: "Poiret One", sans-serif;
+    font-size: 1.5em;
   }
   #postSlug {
+    font-weight: 100;
+    font-family: "Poiret One", sans-serif;
     font-size: 0.8em;
-    text-decoration: none;
-    color: white;
-    font-style: italic;
+    /* text-decoration: none; */
+    color: black;
   }
 `

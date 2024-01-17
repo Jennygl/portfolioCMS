@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from "gatsby"
 const useNavigation = () => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulPages(sort: { fields: url, order: ASC }) {
+      allContentfulPages(sort: { url: ASC }) {
         edges {
           node {
             id
