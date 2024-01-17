@@ -13,7 +13,6 @@ const DefaultTemplate = ({ title, content, text1, text2, image }) => (
 
         <Name>{text1}</Name>
       </LogoTitle>
-      {/* <div className="d-flex"> */}
       <div className="defaultContent">
         {documentToReactComponents(JSON.parse(content.raw))}
         <GatsbyImage
@@ -23,7 +22,6 @@ const DefaultTemplate = ({ title, content, text1, text2, image }) => (
           image={image.gatsbyImage}
         />
       </div>
-      {/* </div> */}
     </Content>
   </Layout>
 )
