@@ -3,7 +3,8 @@ import * as React from "react"
 import Layout from "../components/layout"
 import AboutJenny from "../components/AboutJenny"
 import styled from "styled-components"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
+// import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const HomeTemplate = ({ title, content, data, text1, text2 }) => (
   <Layout>
@@ -15,7 +16,8 @@ const HomeTemplate = ({ title, content, data, text1, text2 }) => (
       <JennyTitle>{text2}</JennyTitle>
     </LogoTitle>
     <div className="about-content homeTemplate">
-      {documentToReactComponents(JSON.parse(content.raw))}
+      <div>{renderRichText(content)}</div>
+      {/* {documentToReactComponents(JSON.parse(content.raw))} */}
     </div>
   </Layout>
 )
