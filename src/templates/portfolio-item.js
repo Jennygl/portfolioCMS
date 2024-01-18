@@ -3,8 +3,6 @@ import { graphql, Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import Layout from "../components/layout"
-// import Img from "gatsby-image"
-// import SEO from "../components/seo"
 
 export const query = graphql`
   query ($slug: String!) {
@@ -27,7 +25,6 @@ const PortfolioItem = props => {
   const { title, text, image, specifyImage } = props.data.contentfulPortfolio
   return (
     <Layout>
-      {/* <SEO title={props.data.contentfulPortfolio.title} /> */}
       <Content className="mx-4 h-100">
         <div className="content">
           <h2 className="mt-5">{props.data.contentfulPortfolio.title}</h2>
@@ -46,13 +43,6 @@ const PortfolioItem = props => {
               image={specifyImage.gatsbyImage}
             />
           )}
-          {/* {props.data.contentfulPortfolio.featuredImage && (
-          <Img
-            className="featured"
-            fluid={props.data.contentfulPortfolio.featuredImage.fluid}
-            alt={props.data.contentfulPortfolio.title}
-          />
-        )} */}
         </div>
         <Link to="/portfolio/">Back to the Portfolio Page</Link>
       </Content>

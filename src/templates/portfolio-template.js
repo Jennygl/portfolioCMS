@@ -4,9 +4,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import styled from "styled-components"
-import { Helmet } from "react-helmet"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
-// import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const PortfolioTemplate = ({ title, content }) => {
   const data = useStaticQuery(graphql`
@@ -30,16 +28,11 @@ const PortfolioTemplate = ({ title, content }) => {
   `)
   return (
     <Layout>
-      {/* <Helmet>
-        <title>Jenny's Portfolio</title>
-        <meta name="description" content="My frontend projects" />
-      </Helmet> */}
       <Content className="content mx-2 mx-sm-5 portfolioTemplate">
         <h2>{title} </h2>
         {content && (
           <div className="portfolio-content">
             <div>{renderRichText(content)}</div>
-            {/* {documentToReactComponents(JSON.parse(content.raw))} */}
           </div>
         )}
         <div className="posts row align-items-start justify-content-center mx-4 mx-sm-1">

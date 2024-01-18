@@ -8,7 +8,6 @@ import { renderRichText } from "gatsby-source-contentful/rich-text"
 const DefaultTemplate = ({ title, content, text1, text2, image }) => (
   <Layout>
     <Content className="content mx-2 mx-sm-5 defaultTemplate mt-auto">
-      {/* <h2>{title}</h2> */}
       <LogoTitle>
         <Title>{text2}</Title>
 
@@ -16,7 +15,6 @@ const DefaultTemplate = ({ title, content, text1, text2, image }) => (
       </LogoTitle>
       <div className="defaultContent">
         <div>{renderRichText(content)}</div>
-        {/* {documentToReactComponents(JSON.parse(content.raw))} */}
         <GatsbyImage
           className="my-3 justify-self-center me-5"
           id="HomeImage"
@@ -58,7 +56,6 @@ const Title = styled.span`
   font-size: 1.5em;
   padding-left: 2em;
   color: var(--green);
-  /* justify-content: end; */
 `
 const Name = styled.span`
   font-family: "Poiret One", sans-serif;

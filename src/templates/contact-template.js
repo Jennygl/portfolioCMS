@@ -1,10 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import styled from "styled-components"
-import { Link } from "gatsby"
-import SymbolComp from "../components/SymbolComp"
 import { graphql, useStaticQuery } from "gatsby"
-// import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 const ContactTemplate = ({ title, content, text1 }) => {
@@ -75,7 +72,5 @@ const Content = styled.section`
   .contact-content {
     transform: rotate(-10deg);
     font-size: 1.6em;
-    /* margin-left: 2vw; */
-    /* margin-top: -2vh; */
   }
 `

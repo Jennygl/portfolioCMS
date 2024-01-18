@@ -1,7 +1,6 @@
 import React from "react"
 import Layout from "../components/layout"
 import styled from "styled-components"
-// import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { BLOCKS, MARKS } from "@contentful/rich-text-types" // Import BLOCKS and MARKS for node types
 import { GatsbyImage } from "gatsby-plugin-image"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
