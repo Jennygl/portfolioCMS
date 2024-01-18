@@ -25,6 +25,7 @@ export const query = graphql`
     }
   }
 `
+// File system route API
 const Page = props => {
   const { data } = props
   const { contentfulPages } = data

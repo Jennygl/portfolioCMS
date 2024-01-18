@@ -2,11 +2,12 @@ import React from "react"
 import Layout from "../components/layout"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+// import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 const DefaultTemplate = ({ title, content, text1, text2, image }) => (
   <Layout>
-    <Content className="content mx-3 defaultTemplate mt-auto">
+    <Content className="content mx-2 mx-sm-5 defaultTemplate mt-auto">
       {/* <h2>{title}</h2> */}
       <LogoTitle>
         <Title>{text2}</Title>
@@ -14,7 +15,8 @@ const DefaultTemplate = ({ title, content, text1, text2, image }) => (
         <Name>{text1}</Name>
       </LogoTitle>
       <div className="defaultContent">
-        {documentToReactComponents(JSON.parse(content.raw))}
+        <div>{renderRichText(content)}</div>
+        {/* {documentToReactComponents(JSON.parse(content.raw))} */}
         <GatsbyImage
           className="my-3 justify-self-center me-5"
           id="HomeImage"
@@ -30,6 +32,7 @@ export default DefaultTemplate
 const Content = styled.section`
   .defaultContent {
     width: 100vw;
+    font-family: "Courier New", Courier, monospace;
   }
   @media screen and (min-width: 992px) {
     .defaultContent {
@@ -37,8 +40,8 @@ const Content = styled.section`
     }
   }
   #HomeImage {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
   }
 `
 

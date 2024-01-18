@@ -5,7 +5,8 @@ import { GatsbyImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import styled from "styled-components"
 import { Helmet } from "react-helmet"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
+// import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
 const PortfolioTemplate = ({ title, content }) => {
   const data = useStaticQuery(graphql`
@@ -37,7 +38,8 @@ const PortfolioTemplate = ({ title, content }) => {
         <h2>{title} </h2>
         {content && (
           <div className="portfolio-content">
-            {documentToReactComponents(JSON.parse(content.raw))}
+            <div>{renderRichText(content)}</div>
+            {/* {documentToReactComponents(JSON.parse(content.raw))} */}
           </div>
         )}
         <div className="posts row align-items-start justify-content-center mx-4 mx-sm-1">

@@ -4,7 +4,8 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 import SymbolComp from "../components/SymbolComp"
 import { graphql, useStaticQuery } from "gatsby"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+// import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 const ContactTemplate = ({ title, content, text1 }) => {
   const data = useStaticQuery(graphql`
@@ -22,31 +23,35 @@ const ContactTemplate = ({ title, content, text1 }) => {
   `)
   return (
     <Layout>
-      <Content className="content mx-2 mx-sm-5 contactTemplate">
+      <Content className="content mx-3 mx-sm-5 contactTemplate">
         <h2>{title}</h2>
-        <div className="contact-content">
-          {documentToReactComponents(JSON.parse(content.raw))}
+        <div className="d-flex flex-column flex-sm-row">
+          <div>
+            {data.allContentfulLinks.edges.map(edge => {
+              return (
+                <div className="link mb-2" key={edge.node.title}>
+                  <a
+                    href={edge.node.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="link"
+                  >
+                    {" "}
+                    <span
+                      className="pe-2"
+                      dangerouslySetInnerHTML={{ __html: edge.node.icon }}
+                    ></span>
+                    {edge.node.title}
+                  </a>
+                </div>
+              )
+            })}
+          </div>
+          <div className="contact-content ms-5">
+            <div>{renderRichText(content)}</div>
+            {/* {documentToReactComponents(JSON.parse(content.raw))} */}
+          </div>
         </div>
-
-        {data.allContentfulLinks.edges.map(edge => {
-          return (
-            <div className="link mb-2" key={edge.node.title}>
-              <a
-                href={edge.node.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="link"
-              >
-                {" "}
-                <span
-                  className="pe-2"
-                  dangerouslySetInnerHTML={{ __html: edge.node.icon }}
-                ></span>
-                {edge.node.title}
-              </a>
-            </div>
-          )
-        })}
       </Content>
     </Layout>
   )
@@ -55,6 +60,14 @@ const ContactTemplate = ({ title, content, text1 }) => {
 export default ContactTemplate
 
 const Content = styled.section`
+  .contactTemplate {
+    width: 100vw;
+  }
+  @media screen and (min-width: 992px) {
+    .contactTemplate {
+      width: 50vw;
+    }
+  }
   a.link {
     color: black;
     text-decoration: none;
@@ -62,6 +75,8 @@ const Content = styled.section`
   .contact-content {
     transform: rotate(-10deg);
     font-size: 1.6em;
+    /* margin-left: 2vw; */
+    /* margin-top: -2vh; */
   }
 `
 
