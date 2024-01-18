@@ -5,6 +5,7 @@ import AboutTemplate from "../templates/about-template"
 import ContactTemplate from "../templates/contact-template"
 import PortfolioTemplate from "../templates/portfolio-template"
 import DefaultTemplate from "../templates/default-template"
+import NotFoundTemplate from "../templates/notfound-template"
 
 export const query = graphql`
   query ($id: String) {
@@ -35,6 +36,8 @@ const Page = props => {
       //     return <HomeTemplate {...contentfulPages} />
       case "about":
         return <AboutTemplate {...contentfulPages} />
+      case "404":
+        return <NotFoundTemplate {...contentfulPages} />
       case "contact":
         return <ContactTemplate {...contentfulPages} />
       case "portfolio":
