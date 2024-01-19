@@ -7,6 +7,7 @@ import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 // Define render options for documentToReactComponents
 const options = {
+    // Define rendering for different block types. Not using all of them yet.
   renderNode: {
     [BLOCKS.PARAGRAPH]: (_, children) => <p>{children}</p>,
     [BLOCKS.HEADING_1]: (_, children) => <h1>{children}</h1>,
@@ -16,14 +17,16 @@ const options = {
       <ul className="experience-list">{children}</ul>
     ),
   },
+  // Define rendering for different text mark types
   renderMark: {
     [MARKS.BOLD]: (_, children) => (
       <strong className="font-bold">{children}</strong>
     ),
   },
 }
-
-const AboutTemplate = ({ title, content, image, text1 }) => (
+// AboutTemplate component that takes title, content, image, and text1 as props
+// Template for the About page
+const AboutTemplate = ({ title, content, image }) => (
   <Layout>
     <Content className="content mx-2 mx-sm-5 aboutTemplate">
       <h2>{title}</h2>

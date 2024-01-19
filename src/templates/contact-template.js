@@ -5,6 +5,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 
 const ContactTemplate = ({ title, content, text1 }) => {
+  //GraphQL query to fetch data
   const data = useStaticQuery(graphql`
     query {
       allContentfulLinks {
@@ -34,6 +35,7 @@ const ContactTemplate = ({ title, content, text1 }) => {
                     className="link"
                   >
                     {" "}
+                    {/* dangerouslySetInnerHTML, to inject HTML directly into a component. In this case an icon from Contentful  */}
                     <span
                       className="pe-2"
                       dangerouslySetInnerHTML={{ __html: edge.node.icon }}
@@ -44,9 +46,9 @@ const ContactTemplate = ({ title, content, text1 }) => {
               )
             })}
           </div>
+          {/* Render rich text content */}
           <div className="contact-content ms-5">
             <div>{renderRichText(content)}</div>
-            {/* {documentToReactComponents(JSON.parse(content.raw))} */}
           </div>
         </div>
       </Content>

@@ -7,7 +7,9 @@ import useNavigation from "../hooks/use-navigation"
 import { graphql, useStaticQuery } from "gatsby"
 import { Helmet } from "react-helmet"
 
+// Layout component that serves as the overall structure for pages
 const Layout = ({ children }) => {
+  // Fetch site metadata and navigation data using GraphQL queries and hooks
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -23,6 +25,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      {/* Head metadata using React Helmet */}
       <Helmet>
         <meta charSet="utf-8" />
         <meta name="author" content={data.site.siteMetadata.author} />
@@ -31,12 +34,15 @@ const Layout = ({ children }) => {
 
         <title>{data.site.siteMetadata.title}</title>
       </Helmet>
+      {/* Header section with navigation */}
       <header className="mb-5 pb-1" siteTitle={data.site.siteMetadata.author}>
         <nav className="navbar navbar-expand-md navbar-light position-fixed top-0">
           <div className="container-fluid">
             <Link to="/" className="navbar-brand">
               <h2>{data.site.siteMetadata.title} </h2>
             </Link>
+
+            {/* Navbar toggle button for small screens */}
             <button
               className="navbar-toggler"
               type="button"
@@ -68,6 +74,7 @@ const Layout = ({ children }) => {
           </div>
         </nav>
       </header>
+      {/* Main content section */}
       <main>{children}</main>
     </>
   )

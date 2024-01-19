@@ -6,6 +6,7 @@ import { renderRichText } from "gatsby-source-contentful/rich-text"
 const NotFoundTemplate = ({ title, content, data, text1, text2 }) => (
   <Layout>
     <div className="about-content homeTemplate">
+    <h2>{title}</h2>
       <div>{renderRichText(content)}</div>
     </div>
   </Layout>

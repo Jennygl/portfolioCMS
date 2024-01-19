@@ -38,6 +38,8 @@ const PortfolioTemplate = ({ title, content }) => {
         <div className="posts row align-items-start justify-content-center mx-4 mx-sm-1">
           {data.allContentfulPortfolio.edges.map(edge => {
             const slug = edge.node.slug
+            //Sliced the text to only show 60 characters on the portfolio page,
+            // instead of the whole text which is found on each portfolio item.
             const truncatedText = edge.node.text.text.slice(0, 60)
             return (
               <div
@@ -78,15 +80,14 @@ const Content = styled.section`
   .post {
     min-width: 180px;
     min-height: 300px;
-    /* background-color: var(--green);
-    background-image: linear-gradient(to bottom, brightpurple, darkgrey); */
-    /* background-color: var(--green);
-    background-image: linear-gradient(to bottom, #58c69a, #093c27); */
     color: black;
     border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
+    background-color: var(--green);
+    background-image: linear-gradient(to bottom, #cecdce, #fae1f8);
   }
+
   .postImage {
     width: 150px;
     /* height: 150px; */

@@ -13,6 +13,7 @@ export const query = graphql`
       }
       image {
         gatsbyImage(width: 200)
+        description
       }
       specifyImage {
         gatsbyImage(width: 200)
@@ -32,7 +33,10 @@ const PortfolioItem = props => {
           <GatsbyImage
             className="my-3"
             id="AboutImage"
-            alt={props.data.contentfulPortfolio.title}
+            alt={props.data.contentfulPortfolio.image.title}
+            data-bs-toggle="tooltip"
+            data-bs-placement="top"
+            title={props.data.contentfulPortfolio.image.description}
             image={props.data.contentfulPortfolio.image.gatsbyImage}
           ></GatsbyImage>
           {specifyImage && (
